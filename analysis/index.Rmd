@@ -10,4 +10,4 @@ editor_options:
 
 This is a website which contains data visualisations for drug flows. 
 
-1. See [here](docs/drug_flows.html) for quick visualisations using heroin and cocaine datasets.
+1. See [here](drug_flows.html) for quick visualisations using heroin and cocaine datasets.
