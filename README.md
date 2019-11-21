@@ -1,5 +1,5 @@
 # Drug_Flows
 
-A [workflowr][] project.
+This is a repo to visualise drug flows. 
 
-[workflowr]: https://github.com/jdblischak/workflowr
+
