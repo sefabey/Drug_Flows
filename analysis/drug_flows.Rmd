@@ -66,5 +66,7 @@ chordDiagram(ck_data, transparency = 0.3)
 ```
 
 
+Obviously the visalisations can be improved. Especially the margins and colours could use some editing. However, I've aimed to do keep this project under an hour, including the GitHub deployment so polishing will possible when I get back to this later. 
+
 # Future Work: Improve Labels, chorddiag, and Sankey Diagram
 
