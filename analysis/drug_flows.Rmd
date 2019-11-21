@@ -1,0 +1,70 @@
+---
+title: "Visualisation of Drug Flows"
+author: "Sefa Ozalp"
+date: "2019-11-21"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Introduction
+
+This is a very brief document to visualise cocaine and heroine flows using a chord diagram using the data provided by my colleague, Luca Giommoni. I have attempted to keep this under an hour. 
+
+```{r}
+library(tidyverse)
+library(circlize)
+# devtools::install_github("mattflor/chorddiag")
+```
+
+
+# Heroin Data
+
+```{r heroine, message=F, warning=F, fig.width=10, fig.height=10}
+heroin_path <- here::here("data/heroin_circos.txt")
+heroin_data <- read_tsv(heroin_path,col_names = T) 
+
+hr_rownames <- heroin_data$ID
+
+hr_data <- heroin_data %>% 
+  mutate_all(~str_replace(., "-", "0")) %>% 
+  select(-ID) %>% 
+  data.matrix() 
+
+rownames(hr_data) <- hr_rownames
+
+hr_data %>% str()
+chordDiagram(hr_data, transparency = 0.3)
+
+
+```
+
+# Cocaine Data
+```{r cocaine, message=F, warning=F, fig.width=10, fig.height=10}
+
+
+coke_path <- here::here("data/Cocaine.txt")
+coke_data <- read_tsv(coke_path,col_names = T) 
+
+ck_rownames <- coke_data$ID
+
+ck_data <- coke_data %>% 
+  mutate_all(~str_replace(., "-", "0")) %>% 
+  select(-ID) %>% 
+  data.matrix() 
+
+rownames(ck_data) <- ck_rownames
+
+ck_data %>% str()
+chordDiagram(ck_data, transparency = 0.3)
+
+```
+
+
+# Future Work: Improve Labels, chorddiag, and Sankey Diagram
+
